@@ -1,0 +1,44 @@
+.panel {
+    width: 1238px;
+    height: 445px;
+    border: 2px solid #fcc573;
+    padding: 7px;
+    background-color: transparent;
+}
+
+.content {
+    height: 100%;
+    background-color: #ff960f;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent {
+    flex: 1 1 0;
+    display: flex;
+    height: 0;
+}
+
+.leftButtonContainer, .rightButtonContainer {
+    display: flex;
+    align-items: center;
+}
+
+.leftButtonContainer {
+    padding-left: 7px;
+    justify-content: flex-end;
+}
+
+.rightButtonContainer {
+    padding-right: 7px;
+    justify-content: flex-start;
+}
+
+.videoContainer {
+    padding: 20px;
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
