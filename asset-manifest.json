@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ts-project/static/css/main.f7b7d857.chunk.css",
+    "main.js": "/ts-project/static/js/main.e1dceec3.chunk.js",
+    "main.js.map": "/ts-project/static/js/main.e1dceec3.chunk.js.map",
+    "runtime-main.js": "/ts-project/static/js/runtime-main.05f6e6cd.js",
+    "runtime-main.js.map": "/ts-project/static/js/runtime-main.05f6e6cd.js.map",
+    "static/js/2.221ad553.chunk.js": "/ts-project/static/js/2.221ad553.chunk.js",
+    "static/js/2.221ad553.chunk.js.map": "/ts-project/static/js/2.221ad553.chunk.js.map",
+    "index.html": "/ts-project/index.html",
+    "precache-manifest.81043cf393031361a1e35e554e1fb518.js": "/ts-project/precache-manifest.81043cf393031361a1e35e554e1fb518.js",
+    "service-worker.js": "/ts-project/service-worker.js",
+    "static/css/main.f7b7d857.chunk.css.map": "/ts-project/static/css/main.f7b7d857.chunk.css.map",
+    "static/media/alien.png": "/ts-project/static/media/alien.994edca5.png"
+  }
+}
