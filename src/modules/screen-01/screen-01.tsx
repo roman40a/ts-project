@@ -10,6 +10,7 @@ import {
 
 import css from './screen-01.module.css';
 import { Iframe } from '../../components/iframe/iframe';
+import { Alien } from '../../components/alien/alien.component';
 
 type Props = {
     topText: string;
@@ -57,6 +58,9 @@ export class Screen01 extends React.PureComponent<Props> {
                         </TextWithAngle>
                     </div>
                 </div>
+                <Alien
+                    text={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}
+                />
             </div>
         );
     }

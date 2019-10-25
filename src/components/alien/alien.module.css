@@ -1,0 +1,47 @@
+.container {
+    transition: all 0.5s ease-out;
+    position: fixed;
+    left: 50px;
+    bottom: -130px;
+    z-index: 9;
+    height: 516px;
+    width: 420px;
+}
+
+.container__opened {
+    bottom: 0;
+}
+
+.alien {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 164px;
+    height: 190px;
+}
+
+.dialog {
+    transition: all 0.5s ease-out;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    width: 325px;
+    height: 325px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.dialog__opened {
+    opacity: 1;
+}
+
+.text {
+    background: transparent;
+    position: absolute;
+    top: 40px;
+    left: 108px;
+    width: 169px;
+    height: 108px;
+    font-size: 25px;
+}
