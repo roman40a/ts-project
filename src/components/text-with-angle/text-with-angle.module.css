@@ -1,0 +1,58 @@
+.topTextContainer, .bottomTextContainer {
+    display: flex;
+}
+
+.topTextContainer {
+    justify-content: flex-start;
+}
+
+.bottomTextContainer {
+    justify-content: flex-end;
+}
+
+.topText, .bottomText {
+    position: relative;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.topText {
+    top: 0;
+    left: 0;
+    border-left: none;
+}
+
+.bottomText {
+    bottom: 0;
+    right: 0;
+    border-right: none;
+}
+
+.text {
+    z-index: 1;
+    position: relative;
+    font-size: 30px;
+    padding: 0 5px;
+}
+
+.triangleTop, .triangleBottom {
+    position: absolute;
+    z-index: 0;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: 50px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.triangleTop {
+    right: 0;
+    transform: skew(-20deg) translateX(11px);
+    border-left: none;
+}
+
+.triangleBottom {
+    left: 0;
+    transform: skew(20deg) translateX(-11px);
+    border-right: none;
+}

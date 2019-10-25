@@ -1,4 +1,8 @@
 import * as React from 'react';
+import {
+    TextWithAngle,
+    TextWithAngleType,
+} from '../../components/text-with-angle/text-with-angle';
 
 import css from './screen-01.module.css';
 
@@ -8,15 +12,10 @@ export class Screen01 extends React.PureComponent {
             <div className={css.container}>
                 <div className={css.panel}>
                     <div className={css.content}>
-                        <div className={css.topTextContainer}>
-                            <div className={css.topText}>
-                                <div className={css.text}>
-                                    There is no way I can defeat them if I
-                                    insert bullets into my gun one by one
-                                </div>
-                                <div className={css.triangleTop} />
-                            </div>
-                        </div>
+                        <TextWithAngle type={TextWithAngleType.Top}>
+                            There is no way I can defeat them if I insert
+                            bullets into my gun one by one
+                        </TextWithAngle>
                         <div className={css.mainContent}>
                             <div className={css.leftButtonContainer}>
                                 leftButtonContainer
@@ -28,14 +27,9 @@ export class Screen01 extends React.PureComponent {
                                 rightButtonContainer
                             </div>
                         </div>
-                        <div className={css.bottomTextContainer}>
-                            <div className={css.bottomText}>
-                                <div className={css.text}>
-                                    You wil need to create a function...
-                                </div>
-                                <div className={css.triangleBottom} />
-                            </div>
-                        </div>
+                        <TextWithAngle type={TextWithAngleType.Bottom}>
+                            You wil need to create a function...
+                        </TextWithAngle>
                     </div>
                 </div>
             </div>
