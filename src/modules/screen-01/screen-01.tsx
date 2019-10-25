@@ -3,6 +3,10 @@ import {
     TextWithAngle,
     TextWithAngleType,
 } from '../../components/text-with-angle/text-with-angle';
+import {
+    NavButton,
+    NavButtonType,
+} from '../../components/nav-button/nav-button';
 
 import css from './screen-01.module.css';
 
@@ -18,13 +22,13 @@ export class Screen01 extends React.PureComponent {
                         </TextWithAngle>
                         <div className={css.mainContent}>
                             <div className={css.leftButtonContainer}>
-                                leftButtonContainer
+                                <NavButton type={NavButtonType.Prev} />
                             </div>
                             <div className={css.videoContainer}>
                                 Video block
                             </div>
                             <div className={css.rightButtonContainer}>
-                                rightButtonContainer
+                                <NavButton type={NavButtonType.Next} />
                             </div>
                         </div>
                         <TextWithAngle type={TextWithAngleType.Bottom}>

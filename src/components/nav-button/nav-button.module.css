@@ -1,0 +1,63 @@
+.container {
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowIconContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.svg {
+    overflow: visible;
+    width: 50%;
+    transform-origin: center;
+}
+
+.svg__next {
+    transform: rotate(90deg);
+}
+
+.svg__prev {
+    transform: rotate(-90deg);
+}
+
+.polygon {
+    stroke-linejoin: round;
+    fill: #ffd082;
+    stroke: black;
+    stroke-width: 2;
+    transform: translateY(-4px);
+}
+
+.innerSvg {
+    overflow: visible;
+    width: 50%;
+    transform-origin: center;
+    position: absolute;
+}
+
+.innerSvg__next {
+    transform: rotate(90deg);
+}
+
+.innerSvg__prev {
+    transform: rotate(-90deg);
+}
+
+.innerPolygon {
+    stroke-linejoin: round;
+    fill: url(#gradient-horizontal);
+    stroke: none;
+    transform: translate(2px,-4px);
+}
