@@ -9,30 +9,51 @@ import {
 } from '../../components/nav-button/nav-button';
 
 import css from './screen-01.module.css';
+import { Iframe } from '../../components/iframe/iframe';
 
-export class Screen01 extends React.PureComponent {
+type Props = {
+    topText: string;
+    bottomText: string;
+    src: string;
+    onPrevButtonClick(): void;
+    onNextButtonClick(): void;
+};
+
+export class Screen01 extends React.PureComponent<Props> {
     render() {
+        const {
+            topText,
+            bottomText,
+            onPrevButtonClick,
+            onNextButtonClick,
+            src,
+        } = this.props;
         return (
             <div className={css.container}>
                 <div className={css.panel}>
                     <div className={css.content}>
                         <TextWithAngle type={TextWithAngleType.Top}>
-                            There is no way I can defeat them if I insert
-                            bullets into my gun one by one
+                            {topText}
                         </TextWithAngle>
                         <div className={css.mainContent}>
                             <div className={css.leftButtonContainer}>
-                                <NavButton type={NavButtonType.Prev} />
+                                <NavButton
+                                    onClick={onPrevButtonClick}
+                                    type={NavButtonType.Prev}
+                                />
                             </div>
                             <div className={css.videoContainer}>
-                                Video block
+                                <Iframe src={src} />
                             </div>
                             <div className={css.rightButtonContainer}>
-                                <NavButton type={NavButtonType.Next} />
+                                <NavButton
+                                    onClick={onNextButtonClick}
+                                    type={NavButtonType.Next}
+                                />
                             </div>
                         </div>
                         <TextWithAngle type={TextWithAngleType.Bottom}>
-                            You wil need to create a function...
+                            {bottomText}
                         </TextWithAngle>
                     </div>
                 </div>

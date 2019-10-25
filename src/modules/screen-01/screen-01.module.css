@@ -24,6 +24,7 @@
 .mainContent {
     flex: 1 1 0;
     display: flex;
+    height: 0;
 }
 
 .leftButtonContainer, .rightButtonContainer {
@@ -42,6 +43,7 @@
 }
 
 .videoContainer {
+    padding: 20px;
     flex: 1 1 0;
     display: flex;
     justify-content: center;

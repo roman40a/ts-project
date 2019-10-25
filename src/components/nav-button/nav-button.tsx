@@ -10,11 +10,12 @@ export enum NavButtonType {
 
 type Props = {
     type: NavButtonType;
+    onClick(): void;
 };
 
 export class NavButton extends React.PureComponent<Props> {
     render() {
-        const { type } = this.props;
+        const { type, onClick } = this.props;
         const svgClassName = cn.default(css.svg, {
             [css.svg__next]: type === NavButtonType.Next,
             [css.svg__prev]: type === NavButtonType.Prev,
@@ -26,7 +27,7 @@ export class NavButton extends React.PureComponent<Props> {
         });
 
         return (
-            <div className={css.container}>
+            <div className={css.container} onClick={onClick}>
                 <div className={css.arrowIconContainer}>
                     <svg
                         className={svgClassName}
