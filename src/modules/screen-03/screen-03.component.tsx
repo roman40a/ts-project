@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Page } from '../../components/page/page';
 import { Player } from '../../components/player/player.component';
+import { Schema } from '../../components/schema/schema.component';
+
+import css from './screen-03.module.css';
 
 export class Screen03 extends React.PureComponent {
     handlePrevClick = () => {
@@ -36,6 +39,9 @@ export class Screen03 extends React.PureComponent {
                     onPlayClick={this.handlePlayClick}
                     onPauseClick={this.handlePauseClick}
                 />
+                <div className={css.schemaContainer}>
+                    <Schema />
+                </div>
             </Page>
         );
     }

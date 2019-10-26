@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+    z-index: 1;
+    height: 4px;
+    background-color: #b1b5c0;
+    transform-origin: left center;
+}
+
+.container:last-child:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 10px solid #b1b5c0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(2px, -50%);
+}
+
+.container__top {
+    transform: rotate(-90deg);
+}
+
+.container__bottom {
+    transform: rotate(90deg);
+}
+
+.container__left {
+    transform: rotate(-180deg);
+}
