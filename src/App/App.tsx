@@ -11,6 +11,7 @@ import { Screen01 } from '../modules/screen-01/screen-01.component';
 import { Screen02 } from '../modules/screen-02/screen-02.component';
 import { Screen03 } from '../modules/screen-03/screen-03.component';
 import { Screen05 } from '../modules/screen-05/screen-05.component';
+import { Screen06 } from '../modules/screen-06/screen-06.component';
 
 type NavRoute = {
     url: string;
@@ -34,6 +35,10 @@ const NAV_ROUTES: NavRoute[] = [
         url: '/screen-05',
         component: <Screen05 />,
     },
+    {
+        url: '/screen-06',
+        component: <Screen06 />,
+    },
 ];
 
 export class App extends React.PureComponent {
@@ -46,7 +51,9 @@ export class App extends React.PureComponent {
                     <NavPanel urls={urls} />
                     <Switch>
                         {NAV_ROUTES.map(route => (
-                            <Route path={route.url}>{route.component}</Route>
+                            <Route key={route.url} path={route.url}>
+                                {route.component}
+                            </Route>
                         ))}
                         <Redirect
                             to={
