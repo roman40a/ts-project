@@ -9,6 +9,7 @@ import {
 import { NavPanel } from '../components/nav-panel/nav-panel.component';
 import { Screen01 } from '../modules/screen-01/screen-01.component';
 import { Screen02 } from '../modules/screen-02/screen-02.component';
+import { Screen03 } from '../modules/screen-03/screen-03.component';
 
 type NavRoute = {
     url: string;
@@ -23,6 +24,10 @@ const NAV_ROUTES: NavRoute[] = [
     {
         url: '/screen-02',
         component: <Screen02 />,
+    },
+    {
+        url: '/screen-03',
+        component: <Screen03 />,
     },
 ];
 
