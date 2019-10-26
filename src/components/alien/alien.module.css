@@ -18,6 +18,7 @@
     left: 0;
     width: 150px;
     height: 183px;
+    cursor: pointer;
 }
 
 .dialog {
