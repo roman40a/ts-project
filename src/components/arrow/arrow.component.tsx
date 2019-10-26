@@ -13,22 +13,24 @@ export enum ArrowDirection {
 type ArrowProps = {
     where: ArrowDirection;
     distance: number;
+    description?: string;
 };
 
 export class ArrowComponent extends React.PureComponent<ArrowProps> {
     render() {
-        const { where, distance } = this.props;
-        const arrowContainerClassName = cn(css.container, {
+        const { where, distance, description } = this.props;
+        const containerClassName = cn(css.container, {
             [css.container__top]: where === ArrowDirection.Top,
             [css.container__bottom]: where === ArrowDirection.Bottom,
             [css.container__right]: where === ArrowDirection.Right,
             [css.container__left]: where === ArrowDirection.Left,
         });
         return (
-            <div
-                style={{ width: distance }}
-                className={arrowContainerClassName}
-            />
+            <div style={{ width: distance }} className={containerClassName}>
+                {description && (
+                    <div className={css.description}>{description}</div>
+                )}
+            </div>
         );
     }
 }

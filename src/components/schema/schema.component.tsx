@@ -10,7 +10,9 @@ export class Schema extends React.PureComponent {
             <div className={css.container}>
                 <div className={css.row}>
                     <SchemaNode
-                        arrow={{ where: ArrowDirection.Bottom, distance: 70 }}
+                        arrows={[
+                            { where: ArrowDirection.Bottom, distance: 70 },
+                        ]}
                     >
                         Start of while loop
                     </SchemaNode>
@@ -18,12 +20,23 @@ export class Schema extends React.PureComponent {
                 <div className={css.row}>
                     <SchemaNode isRed={true}>Stop running</SchemaNode>
                     <SchemaNode
-                        arrow={{ where: ArrowDirection.Left, distance: 70 }}
+                        arrows={[
+                            {
+                                where: ArrowDirection.Left,
+                                distance: 70,
+                                description: 'False',
+                            },
+                            {
+                                where: ArrowDirection.Bottom,
+                                distance: 70,
+                                description: 'True',
+                            },
+                        ]}
                     >
                         "Energy > 0"
                     </SchemaNode>
                     <SchemaNode
-                        arrow={{ where: ArrowDirection.Left, distance: 70 }}
+                        arrows={[{ where: ArrowDirection.Left, distance: 70 }]}
                     >
                         Reduce Energy
                     </SchemaNode>

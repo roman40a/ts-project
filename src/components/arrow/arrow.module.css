@@ -30,3 +30,36 @@
 .container__left {
     transform: rotate(-180deg);
 }
+
+.description {
+    font-size: 20px;
+}
+
+.container__left .description {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    transform: rotate(180deg);
+}
+
+.container__bottom .description {
+    position: absolute;
+    top: 100%;
+    right: 100%;
+    transform-origin: right top;
+    transform: rotate(-90deg) translate(-3px, 0px);
+}
+
+.container__top .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: left center;
+    transform: rotate(90deg) translate(-100%, -50%);
+}
+
+.container__right .description {
+    position: absolute;
+    bottom: 3px;
+    left: 5px;
+}

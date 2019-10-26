@@ -7,11 +7,12 @@ import { ArrowComponent, ArrowDirection } from '../arrow/arrow.component';
 type Arrow = {
     where: ArrowDirection;
     distance: number;
+    description?: string;
 };
 
 type Props = {
     isRed?: boolean;
-    arrow?: Arrow;
+    arrows?: Arrow[];
 };
 
 export class SchemaNode extends React.PureComponent<Props> {
@@ -24,7 +25,7 @@ export class SchemaNode extends React.PureComponent<Props> {
         });
 
     render() {
-        const { children, isRed, arrow } = this.props;
+        const { children, isRed, arrows } = this.props;
         const containerClassName = cn(css.container, {
             [css.container__red]: isRed,
         });
@@ -32,16 +33,20 @@ export class SchemaNode extends React.PureComponent<Props> {
         return (
             <div className={containerClassName}>
                 {children}
-                {arrow && (
-                    <div
-                        className={this.getArrowContainerClassName(arrow.where)}
-                    >
-                        <ArrowComponent
-                            where={arrow.where}
-                            distance={arrow.distance}
-                        />
-                    </div>
-                )}
+                {arrows &&
+                    arrows.map(arrow => (
+                        <div
+                            className={this.getArrowContainerClassName(
+                                arrow.where
+                            )}
+                        >
+                            <ArrowComponent
+                                where={arrow.where}
+                                distance={arrow.distance}
+                                description={arrow.description}
+                            />
+                        </div>
+                    ))}
             </div>
         );
     }
