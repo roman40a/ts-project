@@ -41,35 +41,41 @@ export class ArrowComponent extends React.PureComponent<ArrowProps> {
         }
     };
 
+    renderArrowBody = (style?: React.CSSProperties) => (
+        where: ArrowDirection,
+        distance: number,
+        description?: string
+    ): React.ReactNode => (
+        <div
+            style={{ width: distance, ...style }}
+            className={this.getContainerClassName(where)}
+        >
+            {description && (
+                <div className={css.description}>{description}</div>
+            )}
+        </div>
+    );
+
+    renderNested = (distance: number) => (
+        arrow: ArrowProps
+    ): React.ReactNode[] => {
+        const arrowBody = this.renderArrowBody({
+            position: 'absolute',
+            left: distance,
+            top: this.getNestedArrowTop(arrow.where),
+        })(arrow.where, arrow.distance, arrow.description);
+        if (!arrow.nested) {
+            return [arrowBody];
+        }
+        return [arrowBody, ...this.renderNested(arrow.distance)(arrow.nested)];
+    };
+
     render() {
         const { where, distance, description, nested } = this.props;
         return (
             <>
-                <div
-                    style={{ width: distance }}
-                    className={this.getContainerClassName(where)}
-                >
-                    {description && (
-                        <div className={css.description}>{description}</div>
-                    )}
-                </div>
-                {nested && (
-                    <div
-                        style={{
-                            width: nested.distance,
-                            position: 'absolute',
-                            left: distance,
-                            top: this.getNestedArrowTop(nested.where),
-                        }}
-                        className={this.getContainerClassName(nested.where)}
-                    >
-                        {description && (
-                            <div className={css.description}>
-                                {nested.description}
-                            </div>
-                        )}
-                    </div>
-                )}
+                {this.renderArrowBody()(where, distance, description)}
+                {nested && this.renderNested(distance)(nested)}
             </>
         );
     }
