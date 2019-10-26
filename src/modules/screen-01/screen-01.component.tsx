@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Alien } from '../../components/alien/alien.component';
 import { Panel } from '../../components/panel/panel.compoentt';
-
-import css from './screen-01.module.css';
+import { Page } from '../../components/page/page';
 
 export class Screen01 extends React.PureComponent {
     handlePrevButtonClick = () => {
@@ -15,7 +13,7 @@ export class Screen01 extends React.PureComponent {
 
     render() {
         return (
-            <div className={css.container}>
+            <Page alienText={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}>
                 <Panel
                     topText="There is no way I can defeat them if I insert bullets into my gun one by one"
                     bottomText="You wil need to create a function..."
@@ -23,10 +21,7 @@ export class Screen01 extends React.PureComponent {
                     onPrevButtonClick={this.handlePrevButtonClick}
                     onNextButtonClick={this.handleNextButtonClick}
                 />
-                <Alien
-                    text={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}
-                />
-            </div>
+            </Page>
         );
     }
 }
