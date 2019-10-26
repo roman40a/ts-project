@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Panel } from '../../components/panel/panel.compoentt';
 import { Page } from '../../components/page/page';
+import panelImage from './images/panel-image.jpg';
 
 export class Screen01 extends React.PureComponent {
     handlePrevButtonClick = () => {
@@ -17,7 +18,7 @@ export class Screen01 extends React.PureComponent {
                 <Panel
                     topText="There is no way I can defeat them if I insert bullets into my gun one by one"
                     bottomText="You wil need to create a function..."
-                    src="http://img.allzip.org/g/86/orig/588304.jpg"
+                    src={panelImage}
                     onPrevButtonClick={this.handlePrevButtonClick}
                     onNextButtonClick={this.handleNextButtonClick}
                 />
