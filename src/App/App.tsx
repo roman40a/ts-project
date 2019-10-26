@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { NavPanel } from '../components/nav-panel/nav-panel.component';
 import { Screen01 } from '../modules/screen-01/screen-01.component';
+import { Screen02 } from '../modules/screen-02/screen-02.component';
 
 type NavRoute = {
     url: string;
@@ -18,6 +19,10 @@ const NAV_ROUTES: NavRoute[] = [
     {
         url: '/screen-01',
         component: <Screen01 />,
+    },
+    {
+        url: '/screen-02',
+        component: <Screen02 />,
     },
 ];
 

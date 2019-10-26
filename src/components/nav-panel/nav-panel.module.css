@@ -1,0 +1,14 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.content {
+    display: flex;
+}
+
+.item {
+    margin-left: 12px;
+    font-size: 25px;
+}

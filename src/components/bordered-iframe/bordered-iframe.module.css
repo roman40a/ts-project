@@ -1,0 +1,14 @@
+.container {
+    border: 3px solid #facb7d;
+    width: 670px;
+    height: 630px;
+    padding: 3px;
+    background-color: transparent;
+    display: flex;
+}
+
+.iframe {
+    flex: 1 1 0;
+    outline: none;
+    border: none;
+}

@@ -1,4 +1,5 @@
 .panel {
+    min-width: 670px;
     width: 1238px;
     height: 445px;
     border: 2px solid #fcc573;
