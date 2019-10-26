@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Alien } from '../alien/alien.component';
-import background from './images/background.jpg';
+import background from './images/background_image.jpeg';
 
 import css from './page.module.css';
 
