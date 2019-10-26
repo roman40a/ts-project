@@ -11,7 +11,10 @@ export class Schema extends React.PureComponent {
                 <div className={css.row}>
                     <SchemaNode
                         arrows={[
-                            { where: ArrowDirection.Bottom, distance: 70 },
+                            {
+                                where: ArrowDirection.Bottom,
+                                distance: 70,
+                            },
                         ]}
                     >
                         Start of while loop
@@ -42,7 +45,20 @@ export class Schema extends React.PureComponent {
                     </SchemaNode>
                 </div>
                 <div className={css.row}>
-                    <SchemaNode>Run</SchemaNode>
+                    <SchemaNode
+                        arrows={[
+                            {
+                                where: ArrowDirection.Right,
+                                distance: 177,
+                                nested: {
+                                    where: ArrowDirection.Top,
+                                    distance: 100,
+                                },
+                            },
+                        ]}
+                    >
+                        Run
+                    </SchemaNode>
                 </div>
             </div>
         );

@@ -33,6 +33,7 @@
 
 .description {
     font-size: 20px;
+    white-space: nowrap;
 }
 
 .container__left .description {

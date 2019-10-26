@@ -8,6 +8,7 @@ type Arrow = {
     where: ArrowDirection;
     distance: number;
     description?: string;
+    nested?: Arrow;
 };
 
 type Props = {
@@ -44,6 +45,7 @@ export class SchemaNode extends React.PureComponent<Props> {
                                 where={arrow.where}
                                 distance={arrow.distance}
                                 description={arrow.description}
+                                nested={arrow.nested}
                             />
                         </div>
                     ))}
