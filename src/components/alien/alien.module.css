@@ -4,8 +4,8 @@
     left: 50px;
     bottom: -130px;
     z-index: 9;
-    height: 516px;
-    width: 420px;
+    height: 514px;
+    width: 334px;
 }
 
 .container__opened {
@@ -16,8 +16,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 164px;
-    height: 190px;
+    width: 150px;
+    height: 183px;
 }
 
 .dialog {
@@ -26,8 +26,8 @@
     opacity: 0;
     top: 0;
     right: 0;
-    width: 325px;
-    height: 325px;
+    width: 317px;
+    height: 309px;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -39,9 +39,13 @@
 .text {
     background: transparent;
     position: absolute;
-    top: 40px;
-    left: 108px;
-    width: 169px;
-    height: 108px;
+    top: 34px;
+    left: 57px;
+    width: 185px;
+    height: 169px;
     font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
