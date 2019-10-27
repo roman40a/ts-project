@@ -1,7 +1,7 @@
 .container {
-    min-width: 756px;
-    width: 760px;
-    height: 380px;
+    min-width: 900px;
+    width: 900px;
+    height: 450px;
     border: 2px solid #fcc573;
     padding: 2px;
     background-color: transparent;
@@ -10,7 +10,7 @@
 
 .code {
     height: 100%;
-    width: 450px;
+    width: 60%;
     background-color: #6e0116;
     padding: 35px;
     overflow: auto;

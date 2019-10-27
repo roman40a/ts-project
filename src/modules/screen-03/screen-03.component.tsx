@@ -42,6 +42,7 @@ export class Screen03 extends React.PureComponent {
                 <div className={css.schemaContainer}>
                     <Schema />
                 </div>
+                <div className={css.media}>media</div>
             </Page>
         );
     }

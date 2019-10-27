@@ -1,3 +1,18 @@
 .schemaContainer {
     margin-top: 60px;
 }
+
+.media {
+    width: 230px;
+    height: 285px;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    border: 2px solid #ffd25e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
