@@ -1,6 +1,6 @@
 .container {
-    min-width: 585px;
-    width: 585px;
+    flex: 1 1 0;
+    max-width: 585px;
     border: 2px solid #fcc573;
     padding: 3px;
     background-color: transparent;
@@ -13,6 +13,7 @@
     background-color: #ff960f;
     border-radius: 20px;
     flex: 1 1 0;
+    overflow: auto;
 }
 
 .title {
