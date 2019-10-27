@@ -21,27 +21,27 @@ type NavRoute = {
 
 const NAV_ROUTES: NavRoute[] = [
     {
-        url: '/screen-01',
+        url: '/ts-project/screen-01',
         component: <Screen01 />,
     },
     {
-        url: '/screen-02',
+        url: '/ts-project/screen-02',
         component: <Screen02 />,
     },
     {
-        url: '/screen-03',
+        url: '/ts-project/screen-03',
         component: <Screen03 />,
     },
     {
-        url: '/screen-05',
+        url: '/ts-project/screen-05',
         component: <Screen05 />,
     },
     {
-        url: '/screen-06',
+        url: '/ts-project/screen-06',
         component: <Screen06 />,
     },
     {
-        url: '/screen-09',
+        url: '/ts-project/screen-09',
         component: <Screen09 />,
     },
 ];
