@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ts-project/static/css/main.88b2aecc.chunk.css",
+    "main.css": "/ts-project/static/css/main.6d473650.chunk.css",
     "main.js": "/ts-project/static/js/main.a4f387a9.chunk.js",
     "main.js.map": "/ts-project/static/js/main.a4f387a9.chunk.js.map",
     "runtime-main.js": "/ts-project/static/js/runtime-main.05f6e6cd.js",
@@ -8,9 +8,9 @@
     "static/js/2.b08afa7a.chunk.js": "/ts-project/static/js/2.b08afa7a.chunk.js",
     "static/js/2.b08afa7a.chunk.js.map": "/ts-project/static/js/2.b08afa7a.chunk.js.map",
     "index.html": "/ts-project/index.html",
-    "precache-manifest.bbaccc9ea6fa5856b0d89d5446012d3c.js": "/ts-project/precache-manifest.bbaccc9ea6fa5856b0d89d5446012d3c.js",
+    "precache-manifest.95702aee31f7b67cc5fe44baead8c173.js": "/ts-project/precache-manifest.95702aee31f7b67cc5fe44baead8c173.js",
     "service-worker.js": "/ts-project/service-worker.js",
-    "static/css/main.88b2aecc.chunk.css.map": "/ts-project/static/css/main.88b2aecc.chunk.css.map",
+    "static/css/main.6d473650.chunk.css.map": "/ts-project/static/css/main.6d473650.chunk.css.map",
     "static/media/alien.png": "/ts-project/static/media/alien.c07b2485.png",
     "static/media/background_image.jpeg": "/ts-project/static/media/background_image.7ed2ccd2.jpeg",
     "static/media/dialog.png": "/ts-project/static/media/dialog.d0978f3a.png",
