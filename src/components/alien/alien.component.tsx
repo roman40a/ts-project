@@ -20,6 +20,26 @@ export class Alien extends React.PureComponent<Props, State> {
         isClicked: false,
     };
 
+    handleAlienHidden = () => {
+        this.setState(state => {
+            if (state.isClicked) {
+                return {
+                    ...state,
+                    isClicked: false,
+                };
+            }
+            return state;
+        });
+    };
+
+    componentDidMount(): void {
+        window.addEventListener('click', this.handleAlienHidden);
+    }
+
+    componentWillUnmount(): void {
+        window.removeEventListener('click', this.handleAlienHidden);
+    }
+
     handleMouseEnter = () => {
         this.setState({ isHovered: true });
     };
@@ -28,7 +48,8 @@ export class Alien extends React.PureComponent<Props, State> {
         this.setState({ isHovered: false });
     };
 
-    handleClick = () => {
+    handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation();
         this.setState(state => ({ isClicked: !state.isClicked }));
     };
 
