@@ -1,0 +1,86 @@
+.container {
+    width: 240px;
+    height: 60px;
+    background-color: #ff960f;
+    border: 3px solid black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container:first-child {
+    margin-top: 0;
+}
+
+.container:active {
+    transform: translateY(2px);
+}
+
+.text {
+    z-index: 1;
+}
+
+.leftAngle {
+    width: 30px;
+    height: 60px;
+    background-color: #ff960f;
+    border: 3px solid black;
+    border-right: none;
+    transform: skew(25deg);
+    position: absolute;
+    top: -3px;
+    left: -16px;
+}
+
+.rightAngle {
+    width: 30px;
+    height: 60px;
+    background-color: #ff960f;
+    border: 3px solid black;
+    border-left: none;
+    transform: skew(-25deg);
+    position: absolute;
+    top: -3px;
+    right: -16px;
+}
+
+.leftAngle__great, .rightAngle__great, .container__great {
+    border-top: none;
+}
+
+.leftAngle__great, .rightAngle__great {
+    top: 0;
+}
+
+.text__great {
+    padding-bottom: 3px;
+}
+
+.topBunch {
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    height: 20px;
+    width: 294px;
+    background-color: #ff960f;
+    border: 3px solid black;
+    border-bottom: none;
+    z-index: 1;
+}
+
+.secondTopBunch {
+    background-color: #ff960f;
+    border: 3px solid black;
+    width: 230px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
