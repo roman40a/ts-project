@@ -12,6 +12,7 @@
     margin-top: 20px;
     cursor: pointer;
     user-select: none;
+    z-index: 0;
 }
 
 .container:first-child {
@@ -20,6 +21,11 @@
 
 .container:active {
     transform: translateY(2px);
+}
+
+.container:hover {
+    box-shadow: 0px 0px 100px 26px white;
+    z-index: 1;
 }
 
 .text {

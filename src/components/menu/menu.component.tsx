@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { MenuButton } from '../menu-button/menu-button.component';
 
 import css from './menu.module.css';
-import { MenuButton } from '../menu-button/menu-button.component';
 
 export class Menu extends React.PureComponent {
     render() {
