@@ -14,9 +14,16 @@ export class Screen01 extends React.PureComponent {
         console.log('Next button clicked!');
     };
 
+    handleNavNextClick = () => {
+        console.log('Nav Next clicked');
+    };
+
     render() {
         return (
-            <Page alienText={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}>
+            <Page
+                alienText={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}
+                onNextClick={this.handleNavNextClick}
+            >
                 <div className={css.panelContainer}>
                     <Panel
                         topText="There is no way I can defeat them if I insert bullets into my gun one by one"

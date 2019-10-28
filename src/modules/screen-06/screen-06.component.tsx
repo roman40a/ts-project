@@ -33,11 +33,16 @@ export class Screen06 extends React.PureComponent {
         console.log(ids);
     };
 
+    handleNavNextClick = () => {
+        console.log('Nav Next clicked');
+    };
+
     render() {
         return (
             <Page
                 alienText={'Some text jshd sdfsdf sdf sdfsdf sdf s dfs df '}
                 headerText={'TEST YOUR UNDERSTANDING'}
+                onNextClick={this.handleNavNextClick}
             >
                 <div className={css.formContainer}>
                     <UnderstandingForm
