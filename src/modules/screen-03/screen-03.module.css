@@ -22,5 +22,5 @@
     position: relative;
     width: calc(100% - 30px);
     justify-content: flex-start;
-    overflow: auto;
+    overflow: visible;
 }
