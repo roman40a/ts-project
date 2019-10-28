@@ -1,15 +1,18 @@
 .container {
     border: 3px solid #facb7d;
     flex: 1 1 0;
-    max-width: 670px;
-    max-height: 630px;
+    height: 100%;
+    width: 100%;
     padding: 3px;
     background-color: transparent;
     display: flex;
+    overflow: auto;
 }
 
 .iframe {
     flex: 1 1 0;
     outline: none;
     border: none;
+    height: 100%;
+    width: 100%;
 }
