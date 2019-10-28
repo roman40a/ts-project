@@ -12,7 +12,9 @@ export class Screen02 extends React.PureComponent {
                 headerText={'Test the game!'}
             >
                 <div className={css.iframeContainer}>
-                    <BorderedIframe src={'/screen-01'} />
+                    <BorderedIframe
+                        src={'https://simmer.io/@Hotspur1997/codue'}
+                    />
                 </div>
             </Page>
         );

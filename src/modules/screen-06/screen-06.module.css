@@ -1,6 +1,6 @@
 .formContainer {
     flex: 1 1 0;
-    /*display: flex;*/
+    display: flex;
     height: 0;
     margin-bottom: 100px;
     position: relative;
