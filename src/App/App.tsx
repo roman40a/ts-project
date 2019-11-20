@@ -1,11 +1,6 @@
 import React from 'react';
 import css from './App.module.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { NavPanel } from '../components/nav-panel/nav-panel.component';
 import { Screen01 } from '../modules/screen-01/screen-01.component';
 import { Screen02 } from '../modules/screen-02/screen-02.component';
@@ -59,15 +54,15 @@ export class App extends React.PureComponent {
         console.log(process.env.NODE_ENV, root);
 
         return (
-            <Router>
+            <BrowserRouter basename={root}>
                 <div className={css.container}>
                     <NavPanel urls={urls} />
                     <Switch>
                         {NAV_ROUTES.map(route => {
-                            const url = root + route.url;
+                            const url = route.url;
                             console.log(url);
                             return (
-                                <Route key={url} path={url}>
+                                <Route exact={true} key={url} path={'/' + url}>
                                     {route.component}
                                 </Route>
                             );
@@ -84,7 +79,7 @@ export class App extends React.PureComponent {
                         </Route>
                     </Switch>
                 </div>
-            </Router>
+            </BrowserRouter>
         );
     }
 }
