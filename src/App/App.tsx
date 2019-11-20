@@ -22,52 +22,60 @@ type NavRoute = {
 
 const NAV_ROUTES: NavRoute[] = [
     {
-        url: '/ts-project/screen-01',
+        url: 'screen-01',
         component: <Screen01 />,
     },
     {
-        url: '/ts-project/screen-02',
+        url: 'screen-02',
         component: <Screen02 />,
     },
     {
-        url: '/ts-project/screen-03',
+        url: 'screen-03',
         component: <Screen03 />,
     },
     {
-        url: '/ts-project/screen-05',
+        url: 'screen-05',
         component: <Screen05 />,
     },
     {
-        url: '/ts-project/screen-06',
+        url: 'screen-06',
         component: <Screen06 />,
     },
     {
-        url: '/ts-project/screen-09',
+        url: 'screen-09',
         component: <Screen09 />,
     },
     {
-        url: '/ts-project/screen-10',
+        url: 'screen-10',
         component: <Screen10 />,
     },
 ];
 
 export class App extends React.PureComponent {
     render() {
+        const root =
+            process.env.NODE_ENV === 'production' ? 'ts-project/' : '/';
         const urls = NAV_ROUTES.map(route => route.url);
+        console.log(process.env.NODE_ENV);
 
         return (
             <Router>
                 <div className={css.container}>
                     <NavPanel urls={urls} />
                     <Switch>
-                        {NAV_ROUTES.map(route => (
-                            <Route key={route.url} path={route.url}>
-                                {route.component}
-                            </Route>
-                        ))}
+                        {NAV_ROUTES.map(route => {
+                            const url = root + route.url;
+                            return (
+                                <Route key={url} path={url}>
+                                    {route.component}
+                                </Route>
+                            );
+                        })}
                         <Redirect
                             to={
-                                NAV_ROUTES[0] ? NAV_ROUTES[0].url : '/not-found'
+                                root + NAV_ROUTES[0]
+                                    ? NAV_ROUTES[0].url
+                                    : '/not-found'
                             }
                         />
                         <Route exact path="/not-found">
