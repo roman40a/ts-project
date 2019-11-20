@@ -17,31 +17,31 @@ type NavRoute = {
 
 const NAV_ROUTES: NavRoute[] = [
     {
-        url: 'screen-01',
+        url: '/screen-01',
         component: <Screen01 />,
     },
     {
-        url: 'screen-02',
+        url: '/screen-02',
         component: <Screen02 />,
     },
     {
-        url: 'screen-03',
+        url: '/screen-03',
         component: <Screen03 />,
     },
     {
-        url: 'screen-05',
+        url: '/screen-05',
         component: <Screen05 />,
     },
     {
-        url: 'screen-06',
+        url: '/screen-06',
         component: <Screen06 />,
     },
     {
-        url: 'screen-09',
+        url: '/screen-09',
         component: <Screen09 />,
     },
     {
-        url: 'screen-10',
+        url: '/screen-10',
         component: <Screen10 />,
     },
 ];
@@ -62,16 +62,14 @@ export class App extends React.PureComponent {
                             const url = route.url;
                             console.log(url);
                             return (
-                                <Route exact={true} key={url} path={'/' + url}>
+                                <Route exact={true} key={url} path={url}>
                                     {route.component}
                                 </Route>
                             );
                         })}
                         <Redirect
                             to={
-                                root + NAV_ROUTES[0]
-                                    ? NAV_ROUTES[0].url
-                                    : '/not-found'
+                                NAV_ROUTES[0] ? NAV_ROUTES[0].url : '/not-found'
                             }
                         />
                         <Route exact path="/not-found">
