@@ -56,7 +56,7 @@ export class App extends React.PureComponent {
         const root =
             process.env.NODE_ENV === 'production' ? 'ts-project/' : '/';
         const urls = NAV_ROUTES.map(route => route.url);
-        console.log(process.env.NODE_ENV);
+        console.log(process.env.NODE_ENV, root);
 
         return (
             <Router>
@@ -65,6 +65,7 @@ export class App extends React.PureComponent {
                     <Switch>
                         {NAV_ROUTES.map(route => {
                             const url = root + route.url;
+                            console.log(url);
                             return (
                                 <Route key={url} path={url}>
                                     {route.component}
