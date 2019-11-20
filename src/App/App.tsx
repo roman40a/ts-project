@@ -13,6 +13,7 @@ import { Screen03 } from '../modules/screen-03/screen-03.component';
 import { Screen05 } from '../modules/screen-05/screen-05.component';
 import { Screen06 } from '../modules/screen-06/screen-06.component';
 import { Screen09 } from '../modules/screen-09/screen-09.component';
+import { Screen10 } from '../modules/screen-10/screen-10.component';
 
 type NavRoute = {
     url: string;
@@ -43,6 +44,10 @@ const NAV_ROUTES: NavRoute[] = [
     {
         url: '/ts-project/screen-09',
         component: <Screen09 />,
+    },
+    {
+        url: '/ts-project/screen-10',
+        component: <Screen10 />,
     },
 ];
 

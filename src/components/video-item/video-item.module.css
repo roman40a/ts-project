@@ -1,0 +1,16 @@
+.container {
+    width: calc((100% - 60px - 3*30px) / 4);
+    height: calc((100% - 60px) / 2);
+    border: 2px solid #ffd25e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color ease .3s;
+}
+
+.container:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
