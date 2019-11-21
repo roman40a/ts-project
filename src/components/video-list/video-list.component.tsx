@@ -37,8 +37,8 @@ export class VideoList extends React.PureComponent<Props, State> {
     };
 
     handleResize = (width: number, height: number) => {
-        const horCount = Math.floor(width / (150 + 30));
-        const vertCount = Math.floor(height / (150 + 30));
+        const horCount = Math.floor(width / (300 + 60));
+        const vertCount = Math.floor(height / (300 + 60));
 
         this.setState({ numberOfElements: horCount * vertCount });
     };
@@ -74,7 +74,7 @@ export class VideoList extends React.PureComponent<Props, State> {
         }
     };
 
-    handleVideoSelect = (video: Video) => () =>
+    handleVideoSelect = (video: Video | null) => () =>
         this.setState({ selectedVideo: video });
 
     handlePrevClick = () => {
@@ -112,9 +112,13 @@ export class VideoList extends React.PureComponent<Props, State> {
                     />
                     {chunks[currChunk].map((video, i) => (
                         <VideoItem
+                            isActive={
+                                !!selectedVideo && selectedVideo.id === video.id
+                            }
                             key={i}
                             data={video}
-                            onSelect={this.handleVideoSelect(video)}
+                            onMouseEnter={this.handleVideoSelect(video)}
+                            onMouseLeave={this.handleVideoSelect(null)}
                         />
                     ))}
                 </div>
@@ -132,18 +136,6 @@ export class VideoList extends React.PureComponent<Props, State> {
                         />
                     </div>
                 </div>
-                {selectedVideo && (
-                    <div
-                        className={css.modalWrapper}
-                        onClick={this.handleCloseModal}
-                    >
-                        <div className={css.modalMain}>
-                            <div className={css.modalContent}>
-                                {selectedVideo.title}
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         );
     }

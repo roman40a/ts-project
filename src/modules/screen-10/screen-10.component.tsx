@@ -14,8 +14,9 @@ const createArray = (n: number): null[] => {
 };
 
 const DATA = createArray(50).map((_, i) => ({
+    id: `${i}`,
     title: `Video-${i}`,
-    src: `/video${i}`,
+    src: 'https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1',
     placeholderImg: image,
 }));
 
