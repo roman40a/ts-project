@@ -70,8 +70,8 @@ export class App extends React.PureComponent {
                             })}
                             <Redirect
                                 to={
-                                    NAV_ROUTES[0]
-                                        ? NAV_ROUTES[0].url
+                                    NAV_ROUTES[NAV_ROUTES.length - 1]
+                                        ? NAV_ROUTES[NAV_ROUTES.length - 1].url
                                         : '/not-found'
                                 }
                             />
