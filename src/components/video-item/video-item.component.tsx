@@ -24,6 +24,7 @@ export class VideoItem extends React.PureComponent<Props> {
                     data.title
                 ) : (
                     <video
+                        className={css.video}
                         autoPlay={true}
                         width="100%"
                         height="100%"
