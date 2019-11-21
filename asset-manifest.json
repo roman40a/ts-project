@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ts-project/static/css/main.6408865e.chunk.css",
-    "main.js": "/ts-project/static/js/main.c4705ade.chunk.js",
-    "main.js.map": "/ts-project/static/js/main.c4705ade.chunk.js.map",
+    "main.js": "/ts-project/static/js/main.d49af9d2.chunk.js",
+    "main.js.map": "/ts-project/static/js/main.d49af9d2.chunk.js.map",
     "runtime-main.js": "/ts-project/static/js/runtime-main.05f6e6cd.js",
     "runtime-main.js.map": "/ts-project/static/js/runtime-main.05f6e6cd.js.map",
     "static/js/2.e5de8dcc.chunk.js": "/ts-project/static/js/2.e5de8dcc.chunk.js",
     "static/js/2.e5de8dcc.chunk.js.map": "/ts-project/static/js/2.e5de8dcc.chunk.js.map",
     "index.html": "/ts-project/index.html",
-    "precache-manifest.66a879ca2265b1c37afe373ead4f2832.js": "/ts-project/precache-manifest.66a879ca2265b1c37afe373ead4f2832.js",
+    "precache-manifest.592e1ad294c22791e6659b2168195ebd.js": "/ts-project/precache-manifest.592e1ad294c22791e6659b2168195ebd.js",
     "service-worker.js": "/ts-project/service-worker.js",
     "static/css/main.6408865e.chunk.css.map": "/ts-project/static/css/main.6408865e.chunk.css.map",
     "static/media/alien.png": "/ts-project/static/media/alien.c07b2485.png",
