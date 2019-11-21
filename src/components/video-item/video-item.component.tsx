@@ -23,8 +23,8 @@ export class VideoItem extends React.PureComponent<Props> {
                 {!isActive ? (
                     data.title
                 ) : (
-                    <iframe
-                        title={data.title}
+                    <video
+                        autoPlay={true}
                         width="100%"
                         height="100%"
                         src={data.src}

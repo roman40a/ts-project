@@ -16,7 +16,8 @@ const createArray = (n: number): null[] => {
 const DATA = createArray(50).map((_, i) => ({
     id: `${i}`,
     title: `Video-${i}`,
-    src: 'https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1',
+    src:
+        'https://youix.com/get_file/4/b2b9ac11b04ff426e1142474879b573a11841107da/22000/22448/22448_480x320_youix_com.mp4/?br=489',
     placeholderImg: image,
 }));
 
