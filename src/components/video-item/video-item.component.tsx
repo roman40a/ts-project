@@ -14,7 +14,7 @@ export class VideoItem extends React.PureComponent<Props> {
         return (
             <div
                 className={css.container}
-                // onMouseEnter={onSelect}
+                onMouseEnter={onSelect}
                 style={{ backgroundImage: `url(${data.placeholderImg})` }}
             >
                 {data.title}

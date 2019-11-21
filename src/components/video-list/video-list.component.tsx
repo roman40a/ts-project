@@ -1,8 +1,8 @@
 import React, { MouseEventHandler } from 'react';
+import ReactResizeDetector from 'react-resize-detector';
 import { Video } from './video-list.model';
 import { NavButton, NavButtonType } from '../nav-button/nav-button.component';
 import { VideoItem } from '../video-item/video-item.component';
-import { Player } from '../player/player.component';
 
 import css from './video-list.module.css';
 
@@ -19,7 +19,7 @@ type State = {
 function getChunks<T>(data: T[], n: number): T[][] {
     return data
         .reduce(
-            (prev, curr) => {
+            (prev, _) => {
                 const index = prev.index + n;
                 const arr = [...prev.arr, data.slice(prev.index, index)];
                 return { arr, index };
@@ -36,28 +36,12 @@ export class VideoList extends React.PureComponent<Props, State> {
         numberOfElements: 8,
     };
 
-    container: HTMLDivElement | null = null;
+    handleResize = (width: number, height: number) => {
+        const horCount = Math.floor(width / (150 + 30));
+        const vertCount = Math.floor(height / (150 + 30));
 
-    setNumberOfElements = () => {
-        if (this.container) {
-            const videoListWidth = this.container.clientWidth;
-            const videoListWHeight = this.container.clientHeight;
-            console.log(videoListWidth, videoListWHeight);
-
-            const horCount = Math.floor(videoListWidth / 150);
-            const vertCount = Math.floor(videoListWHeight / 150);
-
-            this.setState({ numberOfElements: horCount * vertCount });
-        }
+        this.setState({ numberOfElements: horCount * vertCount });
     };
-
-    componentDidMount(): void {
-        if (this.container) {
-            this.container.addEventListener('resize', () =>
-                this.setNumberOfElements()
-            );
-        }
-    }
 
     handleLeftButtonClick = () => {
         this.setState(state => {
@@ -117,14 +101,15 @@ export class VideoList extends React.PureComponent<Props, State> {
         const { currChunk, selectedVideo, numberOfElements } = this.state;
 
         const chunks = getChunks(this.props.data, numberOfElements);
-        console.log(numberOfElements);
 
         return (
             <div className={css.container}>
-                <div
-                    className={css.listWrapper}
-                    ref={elem => (this.container = elem)}
-                >
+                <div className={css.listWrapper}>
+                    <ReactResizeDetector
+                        handleHeight={true}
+                        handleWidth={true}
+                        onResize={this.handleResize}
+                    />
                     {chunks[currChunk].map((video, i) => (
                         <VideoItem
                             key={i}
@@ -155,14 +140,6 @@ export class VideoList extends React.PureComponent<Props, State> {
                         <div className={css.modalMain}>
                             <div className={css.modalContent}>
                                 {selectedVideo.title}
-                            </div>
-                            <div className={css.modalFooter}>
-                                <Player
-                                    onPrevClick={this.handlePrevClick}
-                                    onNextClick={this.handleNextClick}
-                                    onPlayClick={this.handlePlayClick}
-                                    onPauseClick={this.handlePauseClick}
-                                />
                             </div>
                         </div>
                     </div>
