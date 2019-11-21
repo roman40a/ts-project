@@ -13,6 +13,7 @@ type Props = {
 type State = {
     currChunk: number;
     selectedVideo: Video | null;
+    numberOfElements: number;
 };
 
 function getChunks<T>(data: T[], n: number): T[][] {
@@ -32,7 +33,31 @@ export class VideoList extends React.PureComponent<Props, State> {
     readonly state: State = {
         currChunk: 0,
         selectedVideo: null,
+        numberOfElements: 8,
     };
+
+    container: HTMLDivElement | null = null;
+
+    setNumberOfElements = () => {
+        if (this.container) {
+            const videoListWidth = this.container.clientWidth;
+            const videoListWHeight = this.container.clientHeight;
+            console.log(videoListWidth, videoListWHeight);
+
+            const horCount = Math.floor(videoListWidth / 150);
+            const vertCount = Math.floor(videoListWHeight / 150);
+
+            this.setState({ numberOfElements: horCount * vertCount });
+        }
+    };
+
+    componentDidMount(): void {
+        if (this.container) {
+            this.container.addEventListener('resize', () =>
+                this.setNumberOfElements()
+            );
+        }
+    }
 
     handleLeftButtonClick = () => {
         this.setState(state => {
@@ -89,13 +114,17 @@ export class VideoList extends React.PureComponent<Props, State> {
     };
 
     render() {
-        const { currChunk, selectedVideo } = this.state;
+        const { currChunk, selectedVideo, numberOfElements } = this.state;
 
-        const chunks = getChunks(this.props.data, 8);
+        const chunks = getChunks(this.props.data, numberOfElements);
+        console.log(numberOfElements);
 
         return (
             <div className={css.container}>
-                <div className={css.listWrapper}>
+                <div
+                    className={css.listWrapper}
+                    ref={elem => (this.container = elem)}
+                >
                     {chunks[currChunk].map((video, i) => (
                         <VideoItem
                             key={i}

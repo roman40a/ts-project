@@ -68,14 +68,18 @@ export class Screen05 extends React.PureComponent {
                 headerText={'While loops...'}
                 onNextClick={this.handleNavNextClick}
             >
-                <Player
-                    onPrevClick={this.handlePrevClick}
-                    onNextClick={this.handleNextClick}
-                    onPlayClick={this.handlePlayClick}
-                    onPauseClick={this.handlePauseClick}
-                />
-                <div className={css.codePanelContainer}>
-                    <CodePanel codeLines={CODE_LINES} />
+                <div className={css.wrapper}>
+                    <div className={css.playerContainer}>
+                        <Player
+                            onPrevClick={this.handlePrevClick}
+                            onNextClick={this.handleNextClick}
+                            onPlayClick={this.handlePlayClick}
+                            onPauseClick={this.handlePauseClick}
+                        />
+                    </div>
+                    <div className={css.codePanelContainer}>
+                        <CodePanel codeLines={CODE_LINES} />
+                    </div>
                 </div>
             </Page>
         );

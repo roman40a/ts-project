@@ -1,8 +1,6 @@
 .iframeContainer {
     flex: 1 1 0;
     display: flex;
-    height: 0;
-    margin-bottom: 90px;
     position: relative;
     width: calc(100% - 30px);
     justify-content: center;

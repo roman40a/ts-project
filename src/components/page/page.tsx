@@ -9,24 +9,39 @@ type Props = {
     alienText: string;
     headerText?: string;
     onNextClick?(): void;
+    onPrevClick?(): void;
 };
 
 export class Page extends React.PureComponent<Props> {
     render() {
-        const { alienText, headerText, onNextClick, children } = this.props;
+        const {
+            alienText,
+            headerText,
+            onNextClick,
+            onPrevClick,
+            children,
+        } = this.props;
         return (
             <div
                 style={{ backgroundImage: `url(${background})` }}
                 className={css.container}
             >
                 {headerText && <h1 className={css.header}>{headerText}</h1>}
-                {children}
+                <div className={css.content}>{children}</div>
                 <Alien text={alienText} />
                 {onNextClick && (
-                    <div className={css.navButtonContainer}>
+                    <div className={css.navButtonNextContainer}>
                         <NavButton
                             type={NavButtonType.Next}
                             onClick={onNextClick}
+                        />
+                    </div>
+                )}
+                {onPrevClick && (
+                    <div className={css.navButtonPrevContainer}>
+                        <NavButton
+                            type={NavButtonType.Prev}
+                            onClick={onPrevClick}
                         />
                     </div>
                 )}

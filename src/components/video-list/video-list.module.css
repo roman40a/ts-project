@@ -1,6 +1,10 @@
+.container {
+    height: 100%;
+    width: 100%;
+}
 .listWrapper {
-    width: 830px;
-    height: 420px;
+    width: 100%;
+    height: calc(100% - 103px);
     border: 2px solid #ffd25e;
     display: flex;
     align-items: flex-start;

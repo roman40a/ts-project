@@ -57,25 +57,31 @@ export class App extends React.PureComponent {
             <BrowserRouter basename={root}>
                 <div className={css.container}>
                     <NavPanel urls={urls} />
-                    <Switch>
-                        {NAV_ROUTES.map(route => {
-                            const url = route.url;
-                            console.log(url);
-                            return (
-                                <Route exact={true} key={url} path={url}>
-                                    {route.component}
-                                </Route>
-                            );
-                        })}
-                        <Redirect
-                            to={
-                                NAV_ROUTES[0] ? NAV_ROUTES[0].url : '/not-found'
-                            }
-                        />
-                        <Route exact path="/not-found">
-                            <div style={{ color: 'white' }}>Page not found</div>
-                        </Route>
-                    </Switch>
+                    <div className={css.content}>
+                        <Switch>
+                            {NAV_ROUTES.map(route => {
+                                const url = route.url;
+                                console.log(url);
+                                return (
+                                    <Route exact={true} key={url} path={url}>
+                                        {route.component}
+                                    </Route>
+                                );
+                            })}
+                            <Redirect
+                                to={
+                                    NAV_ROUTES[0]
+                                        ? NAV_ROUTES[0].url
+                                        : '/not-found'
+                                }
+                            />
+                            <Route exact path="/not-found">
+                                <div style={{ color: 'white' }}>
+                                    Page not found
+                                </div>
+                            </Route>
+                        </Switch>
+                    </div>
                 </div>
             </BrowserRouter>
         );

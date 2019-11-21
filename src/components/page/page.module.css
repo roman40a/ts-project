@@ -1,12 +1,12 @@
 .container {
+    flex: 1 1 0;
     position: relative;
-    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     overflow: auto;
 }
@@ -18,8 +18,22 @@
     font-weight: 100;
 }
 
-.navButtonContainer {
+.content {
+    flex: 1 1 0;
+    width: calc(100% - 60px);
+    max-height: calc(100% - 185px);
+    display: flex;
+    margin-bottom: 90px;
+}
+
+.navButtonNextContainer {
     position: absolute;
     bottom: 15px;
     right: 15px;
+}
+
+.navButtonPrevContainer {
+    position: absolute;
+    top: 15px;
+    left: 15px;
 }

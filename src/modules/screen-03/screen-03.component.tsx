@@ -33,17 +33,21 @@ export class Screen03 extends React.PureComponent {
                 headerText={'While loops...'}
                 onNextClick={this.handleNavNextClick}
             >
-                <Player
-                    onPrevClick={this.handlePrevClick}
-                    onNextClick={this.handleNextClick}
-                    onPlayClick={this.handlePlayClick}
-                    onPauseClick={this.handlePauseClick}
-                />
-                <div className={css.content}>
-                    <div className={css.schemaContainer}>
-                        <Schema />
+                <div className={css.wrapper}>
+                    <div className={css.playerContainer}>
+                        <Player
+                            onPrevClick={this.handlePrevClick}
+                            onNextClick={this.handleNextClick}
+                            onPlayClick={this.handlePlayClick}
+                            onPauseClick={this.handlePauseClick}
+                        />
                     </div>
-                    <div className={css.media}>media</div>
+                    <div className={css.content}>
+                        <div className={css.schemaContainer}>
+                            <Schema />
+                        </div>
+                        <div className={css.media}>media</div>
+                    </div>
                 </div>
             </Page>
         );
