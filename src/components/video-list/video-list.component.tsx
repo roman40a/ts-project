@@ -11,7 +11,7 @@ type Props = {
 };
 
 type State = {
-    currChunk: number;
+    currChunkIndex: number;
     selectedVideo: Video | null;
     numberOfElements: number;
 };
@@ -31,7 +31,7 @@ function getChunks<T>(data: T[], n: number): T[][] {
 
 export class VideoList extends React.PureComponent<Props, State> {
     readonly state: State = {
-        currChunk: 0,
+        currChunkIndex: 0,
         selectedVideo: null,
         numberOfElements: 8,
     };
@@ -45,24 +45,24 @@ export class VideoList extends React.PureComponent<Props, State> {
 
     handleLeftButtonClick = () => {
         this.setState(state => {
-            const { currChunk } = state;
-            if (currChunk <= 0) {
-                return { currChunk };
+            const { currChunkIndex } = state;
+            if (currChunkIndex <= 0) {
+                return { currChunkIndex: currChunkIndex };
             }
             return {
-                currChunk: currChunk - 1,
+                currChunkIndex: currChunkIndex - 1,
             };
         });
     };
 
     handleRightButtonClick = (chunks: Video[][]) => () => {
         this.setState(state => {
-            const { currChunk } = state;
-            if (currChunk >= chunks.length - 1) {
-                return { currChunk };
+            const { currChunkIndex } = state;
+            if (currChunkIndex >= chunks.length - 1) {
+                return { currChunkIndex };
             }
             return {
-                currChunk: currChunk + 1,
+                currChunkIndex: currChunkIndex + 1,
             };
         });
     };
@@ -91,9 +91,10 @@ export class VideoList extends React.PureComponent<Props, State> {
     };
 
     render() {
-        const { currChunk, selectedVideo, numberOfElements } = this.state;
+        const { currChunkIndex, selectedVideo, numberOfElements } = this.state;
 
         const chunks = getChunks(this.props.data, numberOfElements);
+        const currChunk: Video[] | null = chunks[currChunkIndex];
 
         return (
             <div className={css.container}>
@@ -103,17 +104,19 @@ export class VideoList extends React.PureComponent<Props, State> {
                         handleWidth={true}
                         onResize={this.handleResize}
                     />
-                    {chunks[currChunk].map((video, i) => (
-                        <VideoItem
-                            isActive={
-                                !!selectedVideo && selectedVideo.id === video.id
-                            }
-                            key={i}
-                            data={video}
-                            onMouseEnter={this.handleVideoSelect(video)}
-                            onMouseLeave={this.handleVideoSelect(null)}
-                        />
-                    ))}
+                    {currChunk &&
+                        currChunk.map((video, i) => (
+                            <VideoItem
+                                isActive={
+                                    !!selectedVideo &&
+                                    selectedVideo.id === video.id
+                                }
+                                key={i}
+                                data={video}
+                                onMouseEnter={this.handleVideoSelect(video)}
+                                onMouseLeave={this.handleVideoSelect(null)}
+                            />
+                        ))}
                 </div>
                 <div className={css.navWrapper}>
                     <div className={css.leftButton}>
