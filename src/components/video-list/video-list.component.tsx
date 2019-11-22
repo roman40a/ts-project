@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import { Video } from './video-list.model';
 import { NavButton, NavButtonType } from '../nav-button/nav-button.component';
