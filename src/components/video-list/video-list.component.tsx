@@ -67,13 +67,6 @@ export class VideoList extends React.PureComponent<Props, State> {
         });
     };
 
-    handleCloseModal: MouseEventHandler<HTMLDivElement> = e => {
-        const { target, currentTarget } = e;
-        if (target === currentTarget) {
-            this.setState({ selectedVideo: null });
-        }
-    };
-
     handleVideoSelect = (video: Video | null) => () =>
         this.setState({ selectedVideo: video });
 
