@@ -24,6 +24,7 @@ export class VideoItem extends React.PureComponent<Props> {
                     data.title
                 ) : (
                     <video
+                        poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif"
                         className={css.video}
                         autoPlay={true}
                         width="100%"

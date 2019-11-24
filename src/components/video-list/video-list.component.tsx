@@ -13,18 +13,34 @@ type Props = {
 type State = {
     currChunkIndex: number;
     selectedVideo: Video | null;
-    numberOfElements: number;
+
+    horCount: number;
+    vertCount: number;
 };
 
-function getChunks<T>(data: T[], n: number): T[][] {
+function getChunks<T>(data: T[], hor: number, vert: number): T[][][] {
     return data
         .reduce(
             (prev, _) => {
-                const index = prev.index + n;
-                const arr = [...prev.arr, data.slice(prev.index, index)];
+                const index = prev.index + hor * vert;
+                const bigChunk = data.slice(prev.index, index);
+                const chunk: T[][] = bigChunk
+                    .reduce(
+                        (prev, _) => {
+                            const index = prev.index + hor;
+                            const arr = [
+                                ...prev.arr,
+                                bigChunk.slice(prev.index, index),
+                            ];
+                            return { arr, index };
+                        },
+                        { arr: [] as T[][], index: 0 }
+                    )
+                    .arr.filter(arr => arr.length > 0);
+                const arr = [...prev.arr, chunk];
                 return { arr, index };
             },
-            { arr: [] as T[][], index: 0 }
+            { arr: [] as T[][][], index: 0 }
         )
         .arr.filter(arr => arr.length > 0);
 }
@@ -33,14 +49,24 @@ export class VideoList extends React.PureComponent<Props, State> {
     readonly state: State = {
         currChunkIndex: 0,
         selectedVideo: null,
-        numberOfElements: 8,
+        horCount: 0,
+        vertCount: 0,
     };
 
     handleResize = (width: number, height: number) => {
-        const horCount = Math.floor(width / (300 + 60));
-        const vertCount = Math.floor(height / (300 + 60));
+        const horCount = Math.floor(width / 320);
+        const vertCount = Math.floor(height / 180);
 
-        this.setState({ numberOfElements: horCount * vertCount });
+        const reducesHorCount = Math.min(
+            4,
+            horCount > 1 ? horCount - 1 : horCount
+        );
+        const reducesVertCount = Math.min(2, vertCount);
+
+        this.setState({
+            horCount: reducesHorCount,
+            vertCount: reducesVertCount,
+        });
     };
 
     handleLeftButtonClick = () => {
@@ -55,7 +81,7 @@ export class VideoList extends React.PureComponent<Props, State> {
         });
     };
 
-    handleRightButtonClick = (chunks: Video[][]) => () => {
+    handleRightButtonClick = (chunks: Video[][][]) => () => {
         this.setState(state => {
             const { currChunkIndex } = state;
             if (currChunkIndex >= chunks.length - 1) {
@@ -91,32 +117,47 @@ export class VideoList extends React.PureComponent<Props, State> {
     };
 
     render() {
-        const { currChunkIndex, selectedVideo, numberOfElements } = this.state;
+        const {
+            currChunkIndex,
+            selectedVideo,
+            horCount,
+            vertCount,
+        } = this.state;
 
-        const chunks = getChunks(this.props.data, numberOfElements);
-        const currChunk: Video[] | null = chunks[currChunkIndex];
+        const chunks = getChunks(this.props.data, horCount, vertCount);
+        const currChunk: Video[][] | null = chunks[currChunkIndex];
 
         return (
             <div className={css.container}>
-                <div className={css.listWrapper}>
+                <div className={css.listContainer}>
                     <ReactResizeDetector
                         handleHeight={true}
                         handleWidth={true}
                         onResize={this.handleResize}
                     />
-                    {currChunk &&
-                        currChunk.map((video, i) => (
-                            <VideoItem
-                                isActive={
-                                    !!selectedVideo &&
-                                    selectedVideo.id === video.id
-                                }
-                                key={i}
-                                data={video}
-                                onMouseEnter={this.handleVideoSelect(video)}
-                                onMouseLeave={this.handleVideoSelect(null)}
-                            />
-                        ))}
+                    <div className={css.listWrapper}>
+                        {currChunk &&
+                            currChunk.map((videoRow, i) => (
+                                <div key={i} className={css.listRow}>
+                                    {videoRow.map((video, i) => (
+                                        <VideoItem
+                                            isActive={
+                                                !!selectedVideo &&
+                                                selectedVideo.id === video.id
+                                            }
+                                            key={i}
+                                            data={video}
+                                            onMouseEnter={this.handleVideoSelect(
+                                                video
+                                            )}
+                                            onMouseLeave={this.handleVideoSelect(
+                                                null
+                                            )}
+                                        />
+                                    ))}
+                                </div>
+                            ))}
+                    </div>
                 </div>
                 <div className={css.navWrapper}>
                     <div className={css.leftButton}>
