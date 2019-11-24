@@ -4,6 +4,7 @@ import background from './images/background_image.jpeg';
 
 import css from './page.module.css';
 import { NavButton, NavButtonType } from '../nav-button/nav-button.component';
+import { BackButton } from '../back-button/back-button.component';
 
 type Props = {
     alienText: string;
@@ -39,10 +40,7 @@ export class Page extends React.PureComponent<Props> {
                 )}
                 {onPrevClick && (
                     <div className={css.navButtonPrevContainer}>
-                        <NavButton
-                            type={NavButtonType.Prev}
-                            onClick={onPrevClick}
-                        />
+                        <BackButton onBack={onPrevClick} />
                     </div>
                 )}
             </div>
