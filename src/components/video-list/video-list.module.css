@@ -14,8 +14,8 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     color: white;
     font-size: 30px;
@@ -23,10 +23,15 @@
 
 .listRow {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.listRow:last-child {
+    margin-bottom: 0;
 }
 
 .navWrapper {

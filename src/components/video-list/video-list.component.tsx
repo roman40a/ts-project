@@ -54,8 +54,8 @@ export class VideoList extends React.PureComponent<Props, State> {
     };
 
     handleResize = (width: number, height: number) => {
-        const horCount = Math.floor(width / 320);
-        const vertCount = Math.floor(height / 180);
+        const horCount = Math.floor(width / 360);
+        const vertCount = Math.floor(height / 270);
 
         const reducesHorCount = Math.min(
             4,
