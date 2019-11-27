@@ -21,7 +21,7 @@ export class VideoItem extends React.PureComponent<Props> {
                 style={{ backgroundImage: `url(${data.placeholderImg})` }}
             >
                 {!isActive ? (
-                    data.title
+                    <div className={css.title}>{data.title}</div>
                 ) : (
                     <video
                         poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif"
